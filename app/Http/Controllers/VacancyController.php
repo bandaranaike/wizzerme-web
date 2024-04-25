@@ -49,9 +49,10 @@ class VacancyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Vacancy $vacancy)
+    public function show($uuid): JsonResponse
     {
-        //
+        $vacancy = Vacancy::with('company')->where('public_id', $uuid)->first();
+        return new JsonResponse($vacancy);
     }
 
     /**

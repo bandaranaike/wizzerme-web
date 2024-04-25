@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('search/{key?}', [VacancyController::class, 'search']);
+Route::get('vacancy/{public_id}', [VacancyController::class, 'show']);
